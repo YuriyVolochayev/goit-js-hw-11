@@ -4,7 +4,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 // ініціалізую лайтбокс
 
-const lightbox = new SimpleLightbox(". gallary a", {
+const lightbox = new SimpleLightbox(".gallary a", {
     captionsData: "alt",
     captionsDelay: 250,
 });
@@ -29,7 +29,8 @@ export function createGallery(images) {
                 <p class="text">Downloads <span class="span">${image.downloads}</span></p>
             </div>
         </li>`
-    ).join("");
+    )
+        .join("");
     gallery.insertAdjacentHTML("beforeend", markup);
     lightbox.refresh();
 }
@@ -48,5 +49,5 @@ export function showLoader() {
 // створюю функцію, що прибирає клас для відображення лодера(для експорту)
 
 export function hideLoader() {
-    loader.style.display = "nono";
+    loader.style.display = "none";
 }

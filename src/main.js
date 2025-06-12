@@ -1,24 +1,22 @@
-import { getImagesByQuery } from "./js/pixabay-api.js";
-import { createGallery, clearGallery, showLoader, hideLoader } from "./js/render-functions.js";
+import { getImagesByQuery } from './js/pixabay-api.js';
+import { createGallery, clearGallery, showLoader, hideLoader } from './js/render-functions.js';
 
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-//знаходжу необхідне
+
 
 const form = document.querySelector(".form");
 const gallery = document.querySelector(".gallery");
 
-// додаю слухача подій на форму
+
 
 form.addEventListener("submit", event => {
     event.preventDefault();
 
-    //зберігаю введені дані в окрему змінну
 
     const query = event.target.elements["search-text"].value.trim();
     
-    // перевіряю на порожній запит
 
     if (!query) {
         iziToast.warning({
@@ -28,7 +26,6 @@ form.addEventListener("submit", event => {
         });
         return;
     }
-    // прибираю попередні результати+показую індикатор завантаження. Викликаю імпортовані функції
     
     clearGallery();
     showLoader();

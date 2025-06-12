@@ -1,20 +1,16 @@
-// імпортую бібліотеки
-import SimpleLightbox from "simplelightbox";
-import 'simplelightbox/dist/simple-lightbox.min.css';
 
-// ініціалізую лайтбокс
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 
 const lightbox = new SimpleLightbox(".gallary a", {
     captionsData: "alt",
     captionsDelay: 250,
 });
 
-// знаходжу/звертаюсь до ДОМ елементів
 
 const gallery = document.querySelector(".gallery");
 const loader = document.querySelector(".loader");
-
-// створюю функції яка робить розмітку (для експорту)
 
 export function createGallery(images) {
     const markup = images.map(image => `
@@ -35,18 +31,15 @@ export function createGallery(images) {
     lightbox.refresh();
 }
 
-// створюю функцію яка очищає вміст конт галереї (для експорту)
 export function clearGallery() {
-    gallery.innerHTML = ""; //заміняє
+    gallery.innerHTML = "";
 }
 
-// створюю функцію, що додає клас для відображення лодера (для експорту)
 
 export function showLoader() {
     loader.style.display = "block";
 }
 
-// створюю функцію, що прибирає клас для відображення лодера(для експорту)
 
 export function hideLoader() {
     loader.style.display = "none";
